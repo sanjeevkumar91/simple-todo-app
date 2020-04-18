@@ -5,8 +5,8 @@ module.exports = {
    context: __dirname,
    entry: './src/index.js',
    output: {
-      path: path.resolve( __dirname, 'dist' ),
-      filename: 'main.js',
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js',
       publicPath: '/',
    },
    devServer: {
@@ -15,22 +15,25 @@ module.exports = {
    module: {
       rules: [
          {
-            test: /\.js$/,
+            test: /\.jsx?$/,
             use: 'babel-loader',
          },
          {
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader'],
+            test: /\.s[ac]ss$/i,
+            use: ['style-loader', 'css-loader', 'sass-loader'],
          },
          {
             test: /\.(png|j?g|svg|gif)?$/,
             use: 'file-loader'
          }
-]
+      ]
+   },
+   resolve: {
+      extensions: ['.js', '.jsx']
    },
    plugins: [
       new HtmlWebPackPlugin({
-         template: path.resolve( __dirname, 'public/index.html' ),
+         template: path.resolve( __dirname, 'src/index.html' ),
          filename: 'index.html'
       })
    ]

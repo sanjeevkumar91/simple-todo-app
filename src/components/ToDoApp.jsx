@@ -1,5 +1,4 @@
-import React, { Component, useState } from 'react';
-import '../scss/Todo.scss';
+import React, { Component } from 'react';
 import { TODO_STATUS, ERROR_MSG } from '../common/constants';
 import ToDoItem from './ToDoItem';
 

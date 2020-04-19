@@ -24,8 +24,6 @@ const ToDoItem = ({ todo, updateToDo, onDeleteToDo, isValidToDo }) => {
     setError('')
   }
 
-  const onInputBlur = () => onInputSubmit()
-
   const toggleStatus = (status) => status == TODO_STATUS.IN_PROGRESS ? TODO_STATUS.COMPLETED : TODO_STATUS.IN_PROGRESS
 
   const updateStatus = () => {
@@ -48,12 +46,12 @@ const ToDoItem = ({ todo, updateToDo, onDeleteToDo, isValidToDo }) => {
         <input type="checkbox" className="todo-check" onChange={updateStatus} checked={todo.status === TODO_STATUS.COMPLETED} />
         <div className={classNames({ 'todo-item': true, completed: todo.status === TODO_STATUS.COMPLETED })}>
           {isEditable 
-            ? <input type="text" autoFocus onFocus={moveCursorToEnd} onKeyDown={onKeyDown} onChange={onChangeToDo} value={todoItem} onBlur={onInputBlur} />
-            : <span>{todoItem}</span>
+            ? <input type="text" className="todo-edit-input" autoFocus onFocus={moveCursorToEnd} onKeyDown={onKeyDown} onChange={onChangeToDo} value={todoItem} />
+            : <span className="todo-item-text">{todoItem}</span>
           }
         </div>
-        <label onClick={() => setEditable(true)}>{isEditable ? 'Save' : 'Edit'}</label>
-        <label onClick={() => onDeleteToDo(todo.id)}>Delete</label>
+        <label className="edit-todo" onClick={() => setEditable(!isEditable)}>{isEditable ? 'Save' : 'Edit'}</label>
+        <label className="delete-todo" onClick={() => onDeleteToDo(todo.id)}>Delete</label>
       </div>
       {error && <div className="error">{error}</div>}
     </div>

@@ -24,7 +24,7 @@ describe('App', () => {
     reactWrapper.find('.edit-todo').simulate('click');
     const input = reactWrapper.find('.todo-edit-input');
     input.simulate('change', { target: { value: 'First Task 1 Modified' } })
-    reactWrapper.find('.edit-todo').simulate('click');
+    reactWrapper.find('.save-todo').simulate('click');
     expect(reactWrapper.find('.todo-item-text').text()).toEqual('First Task 1 Modified')
   })
 

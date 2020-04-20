@@ -1,5 +1,8 @@
 import React from 'react';
-import { configure, mount } from 'enzyme';
+import {
+  configure,
+  mount
+} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App from '../src/components/ToDoApp'
 
@@ -7,13 +10,19 @@ describe('App', () => {
   let reactWrapper;
 
   beforeAll(() => {
-    configure({ adapter: new Adapter() });
-    reactWrapper = mount(<App />);
+    configure({
+      adapter: new Adapter()
+    });
+    reactWrapper = mount( < App / > );
   });
 
   test('add a todo', () => {
     const input = reactWrapper.find('input');
-    input.simulate('change', { target: { value: 'First Task' } })
+    input.simulate('change', {
+      target: {
+        value: 'First Task'
+      }
+    })
     reactWrapper.find('button').simulate('click');
     const todoItem = reactWrapper.find('.todo-item-text')
     expect(todoItem.length).toEqual(1)
@@ -23,7 +32,11 @@ describe('App', () => {
   test('edit a todo', () => {
     reactWrapper.find('.edit-todo').simulate('click');
     const input = reactWrapper.find('.todo-edit-input');
-    input.simulate('change', { target: { value: 'First Task 1 Modified' } })
+    input.simulate('change', {
+      target: {
+        value: 'First Task 1 Modified'
+      }
+    })
     reactWrapper.find('.save-todo').simulate('click');
     expect(reactWrapper.find('.todo-item-text').text()).toEqual('First Task 1 Modified')
   })
@@ -31,7 +44,11 @@ describe('App', () => {
   test('complete a todo', () => {
     expect(reactWrapper.find('.todo-item.completed').length).toEqual(0)
     const checkbox = reactWrapper.find('.todo-check');
-    checkbox.simulate('change', {target: { checked: true }});
+    checkbox.simulate('change', {
+      target: {
+        checked: true
+      }
+    });
     expect(reactWrapper.find('.todo-item.completed').length).toEqual(1)
   })
 

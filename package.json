@@ -8,6 +8,12 @@
     "prod": "webpack --mode=production",
     "test": "jest"
   },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "printWidth": 120,
+    "singleQuote": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sanjeevkumar91/simple-todo-app.git"

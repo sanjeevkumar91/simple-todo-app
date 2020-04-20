@@ -3,13 +3,14 @@ $header-border-color: black;
 $todo-border-color: #ccc;
 
 .todo-container {
-  overflow: auto;  
+  overflow: auto;
   height: 100%;
+
   .todo-input {
     margin: 20px 0px;
     font-size: 13px;
   }
-  
+
   .add-btn {
     margin-left: 20px;
     width: 50px;
@@ -19,38 +20,43 @@ $todo-border-color: #ccc;
     color: $text-color;
     font-size: 15px;
     cursor: pointer;
+
+    &:enabled {
+      color: black;
+    }
   }
-  
+
   .header {
     font-weight: 500px;
     border-bottom: 2px solid $header-border-color;
     padding: 10px 0px;
   }
-  
+
   .no-items-text {
     padding: 20px 0px;
   }
-  
+
   .completed {
     text-decoration: line-through;
   }
-  
+
   label {
     padding-left: 10px;
-    color: $text-color;
+    color: black;
     font-size: 15px;
     cursor: pointer;
   }
-  
+
   .todo-item-container {
     border-bottom: 1px solid $todo-border-color;
     padding: 20px 0px;
+
     .todo-item {
       min-width: 200px;
       display: inline-block;
     }
   }
-  
+
   .error {
     color: red;
     font-size: 10px;

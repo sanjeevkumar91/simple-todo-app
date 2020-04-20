@@ -22,7 +22,7 @@ $todo-border-color: #ccc;
     cursor: pointer;
 
     &:enabled {
-      color: black;
+      color: #000000b3;
     }
   }
 
@@ -42,7 +42,7 @@ $todo-border-color: #ccc;
 
   label {
     padding-left: 10px;
-    color: black;
+    color: #000000b3;
     font-size: 15px;
     cursor: pointer;
   }
